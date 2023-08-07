@@ -1,0 +1,160 @@
+/* START FOOTER  =========================================================================================================================================================================================================================================================================== */
+.footer {
+    background-color: $primary;
+    padding: rem(45) 0;
+    @include adaptiveValue("margin-top", 100, 64, 767.98, 479.98, 1);
+    @media (max-width: $mobileSmall){
+         padding: rem(25) 0; 
+    }
+    // .footer__container
+    &__container {
+        display: flex;
+        column-gap: rem(20);
+        justify-content: space-between;
+        @media (max-width: $tablet){
+             display: grid;
+             grid-template-columns: 1fr;
+             grid-template-areas: 'p' 'i' 'c';
+             justify-content: center;
+             align-items: center;
+        }
+    }
+    // .footer__info
+    &__info {
+        grid-area: i;
+    }
+    // .footer__title
+    &__title {
+        font-size: rem(45);
+        color: #FFFDFA;
+        font-family: 'CormorantGaramond';
+        font-weight: 700;
+        @media (max-width: $tablet){
+             display: none;
+        }
+    }
+    // .footer__subtitle
+    &__subtitle {
+        font-family: 'CormorantGaramond';
+        font-size: rem(36);
+        font-weight: 400;
+        color: #FFFDFA;
+        @media (max-width: $tablet){
+             display: none;
+        }
+    }
+    // .footer__list
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(10);
+        margin-top: rem(20); 
+    }
+    // .footer__item
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        column-gap: rem(8);
+        &::before{
+            content: '';
+            display: inline-block;
+            flex: 0 0 rem(6);
+            height: rem(6);
+            background-color: $accent;
+            border-radius: 50%;
+        }
+    }
+    // .footer__link
+    &__link {
+        color: $accent;
+        position: relative;
+        font-size: rem(14);
+        transition: all .3s ease;
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: rem(-3);
+            width: 100%;
+            height: rem(1);
+            background-color: currentColor;
+            transition: all .3s ease;
+        }
+        @media (any-hover: hover){
+             &:hover {
+              color: $accentHover;
+              &::before{
+                width: 75%;
+              }
+            } 
+        }
+        &:active{
+            color: $accentActive;
+        }
+    }
+    &__center{
+        grid-area: p;
+    }
+    &__pays{
+        display: inline-flex;
+        align-items: center;
+        @include adaptiveValue("column-gap", 20, 10, 1200, 479.98, 1);
+        @media (max-width:$mobileSmall){
+            display: flex;
+            justify-content: center;
+        }
+    }
+    &__pay{
+        &:nth-child(1){
+            @include adaptiveValue("width", 70, 50, 1200, 479.98, 1);
+            @include adaptiveValue("height", 45, 30, 1200, 479.98, 1);
+            background-image: url('../../images/photos/MasterCard.webp');
+        }
+        &:nth-child(2){
+            @include adaptiveValue("width", 70, 60, 1200, 479.98, 1);
+            @include adaptiveValue("height", 60, 45, 1200, 479.98, 1);
+            background-image: url('../../images/photos/visa.webp');
+        }
+        &:nth-child(3){
+            @include adaptiveValue("width", 200, 125, 1200, 479.98, 1);
+            @include adaptiveValue("height", 60, 40, 1200, 479.98, 1);
+            filter: contrast(1.5);
+        }
+
+    }
+    // .footer__contacts
+    &__contacts {
+        grid-area: c;
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(5);
+        margin-top: rem(20);
+    }
+    // .footer__contact
+    &__contact {
+        color: #FFFDFA;
+        position: relative;
+        text-align: right;
+        font-size: rem(18);
+        line-height: 129.166667%; /* 31/24 */
+        font-weight: 400;
+        transition: all .3s ease;
+        @media (any-hover: hover){
+             &:hover {
+              color: $accent;
+            } 
+        }
+        &:active{
+            color: $accentActive;
+        }
+        @media (max-width: $tablet){
+             padding-left: rem(13);
+             text-align: left;
+        }
+        @media (max-width:$mobileSmall){
+            font-size: rem(14); 
+       }
+    }
+}
+
+/* END FOOTER  =========================================================================================================================================================================================================================================================================== */

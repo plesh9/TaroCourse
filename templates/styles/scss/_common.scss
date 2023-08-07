@@ -1,0 +1,238 @@
+/* COMMON  =========================================================================================================================================================================================================================================================================== */
+.title{
+    text-transform: uppercase;
+    color: $primary;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 48, 24, 767.98, 479.98, 1);
+    text-align: center;
+    letter-spacing: 0.04em;
+    font-family: "CormorantGaramond";
+}
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: rem(10) rem(15);
+    min-width: rem(300);
+    height: rem(60);
+    background-color: $accent;
+    border-radius: rem(8);
+    color: #FAF4F0;
+    font-size: rem(18);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 122.222222%;
+    transition: all .2s ease;
+    @media (any-hover: hover){
+         &:hover {
+          background-color: $accentHover;
+        } 
+    }
+    &:active {
+        background-color: $accentActive;
+    } 
+    &-yellow{
+        background-color: $yellow;
+        color: #2A2D46;
+        @media (any-hover: hover){
+            &:hover {
+             background-color: $yellowHover;
+           } 
+       }
+       &:active {
+           background-color: $yellowActive;
+       } 
+    }
+    &-primary{
+        background-color: $primary;
+        @media (any-hover: hover){
+            &:hover {
+             background-color: $primaryHover;
+           } 
+       }
+       &:active {
+           background-color: $primaryActive;
+       } 
+    }
+}
+.crown{
+    margin: 0 auto;
+    @include adaptiveValue("width", 593, 330, 767.98, 479.98, 1);
+    @include adaptiveValue("height", 161, 90, 767.98, 479.98, 1);
+}
+.wave{
+    width: 100%;
+    @include adaptiveValue("height", 219, 30, 767.98, 479.98, 1);
+    filter: drop-shadow(0 rem(42) rem(50)#16161633)
+}
+.input{
+    width: fit-content;
+    border: rem(1) solid $yellow;
+    border-radius: rem(6);
+    background-color: transparent;
+    padding: rem(5) rem(10);
+    outline: none;
+    color: $primary;
+    font-size: rem(16);
+    @media (max-width: $mobile){
+        font-size: rem(11);
+    }
+    height: rem(50);
+    &::placeholder{
+        color: #2a2d4697;
+    }
+    &-w100{
+        width: 100%;
+    }
+    &.invalid{
+        border: 2px solid #F88C73;
+    }
+}
+
+.form {
+    position: relative;
+    background-color: #FFFEFD;
+    padding: rem(35);
+    @include adaptiveValue("padding", 35, 20, 767.98, 479.98, 1);
+    padding-bottom: rem(50);
+    max-width: rem(900);
+    width: 100%;
+    &.mobile-form{
+        position: fixed;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        overflow-y: scroll;
+        transform: scale(0.7);
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s ease;
+        &.showForm {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+        & > *{
+            max-width: rem(800);
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    // .footer-form-meet-page__inputs
+    &__inputs {
+        margin-top: rem(24);
+    }
+    &__box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: rem(10);
+        &:not(:last-child) {margin-bottom: rem(14);}
+    }
+    // .footer-form-meet-page__label
+    &__label {
+        color: $primary;
+    }
+    // .footer-form-meet-page__input
+    &__input {
+    }
+
+    // .footer-form-meet-page__info
+
+    &__info {
+    }
+
+    // .footer-form-meet-page__text
+
+    &__text {
+        text-align: center;
+        font-size: rem(16);
+        font-weight: 600;
+        color: #2A2D46;
+        @media (max-width:$mobile){
+             margin-top: rem(15); 
+        }
+    }
+
+    // .footer-form-meet-page__price
+
+    &__price {
+        display: flex;
+        justify-content: space-between;
+        color: #2A2D46;
+        font-weight: 300;
+        font-size: rem(14);
+        padding-bottom: rem(3);
+        border-bottom: rem(1) solid #000000;
+        margin-top: rem(52);
+        & span{
+            font-weight: 600;
+            font-size: rem(16);
+        }
+    }
+
+    // .footer-form-meet-page__all
+
+    &__all {
+        color: $yellow;
+        font-size: rem(16);
+        font-weight: 300;
+        opacity: 0.8;
+        text-align: center;
+        margin-top: rem(28);
+    }
+
+    // .footer-form-meet-page__btn
+
+    &__btn {
+        margin-top: rem(22);
+    }
+    &__privacy{
+        color: #7F7F7F;
+        font-size: rem(10);
+        text-align: center;
+        max-width: rem(209);
+        margin: 0 auto;
+        margin-top: rem(8);
+    }
+    &__close{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: rem(10);
+        width: rem(20);
+		height: rem(20);
+		cursor: pointer;
+        &::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #272525;
+			border-radius: rem(10)
+		}
+        &::before {
+            top: calc(50% - rem(1));
+            transform: rotate(-45deg);
+        }
+        &::after {
+            bottom: calc(50% - rem(1));
+            transform: rotate(45deg);
+        }
+    }
+    &__invalid{
+        display: none;
+        color: #F88C73;
+        font-size: rem(12);
+        align-self: flex-start;
+        &.show{
+            display: block;
+        }
+    }
+}
